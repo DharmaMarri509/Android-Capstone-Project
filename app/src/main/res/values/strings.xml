@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Invoice-Management</string>
+    <string name="hint_email">email</string>
+    <string name="button_register">Register</string>
+    <string name="hint_password">password</string>
+    <string name="hint_username">username</string>
+    <string name="text_create_new_account">Create New Account</string>
+    <string name="text_register_yourself">Register Yourself</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="login">Login</string>
+    <string name="login_here">login here</string>
+    <string name="login_textView">Login</string>
+    <string name="signIn_to_continue">signin to continue</string>
+    <string name="clientname">ClientName</string>
+    <string name="amount">amount</string>
+    <string name="date">Date</string>
+</resources>
