@@ -48,7 +48,7 @@ class AddInvoiceActivity : AppCompatActivity() {
             val date = date.text.toString()
             val desc = description.text.toString()
             Log.i("addinvoice activity","description before call is $desc")
-            val invoice = Invoice(clientName,amount,date,desc)
+            val invoice = Invoice(0,clientName,amount,date,desc)
             Log.i("addinvoice activity","description is $desc")
             val call: Call<Invoice> = invoiceApi.saveInvoice(userId,invoice)
 

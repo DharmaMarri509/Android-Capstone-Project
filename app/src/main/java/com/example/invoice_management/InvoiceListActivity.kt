@@ -57,7 +57,7 @@ class InvoiceListActivity : AppCompatActivity() {
             if (response.isSuccessful) {
                 val invoices = response.body() ?: emptyList()
                 Log.i("invoice activity","list of invoices $invoices")
-                invoiceAdapter = InvoiceAdapter(invoices)
+                invoiceAdapter = InvoiceAdapter(this@InvoiceListActivity,invoices)
                 recyclerView.adapter = invoiceAdapter
             }
         }

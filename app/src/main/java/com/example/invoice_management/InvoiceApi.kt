@@ -13,8 +13,8 @@ interface InvoiceApi {
     @GET("/invoice/getInvoicesList")
     fun getInvoices(@Query("userId") userId:Int):Call<List<Invoice>>
 
-    @DELETE("/invoice/")
-    suspend fun deleteInvoice(@Query("invoiceId") invoiceId:Int):Response<String>
+    @DELETE("/invoice/delete")
+    fun deleteInvoice(@Query("invoiceId") invoiceId:Int):Call<Void>
 
     @POST("/invoice/save")
     fun saveInvoice(@Query("userId") userId:Int, @Body invoice:Invoice):Call<Invoice>
