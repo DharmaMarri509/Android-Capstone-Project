@@ -44,16 +44,16 @@ class DeleteActivity : AppCompatActivity() {
         //getting the data from the shared preferences..
         val invSharedPref: SharedPreferences = getSharedPreferences("invoice_data", Context.MODE_PRIVATE)
         val id = invSharedPref.getInt("invoice_id",0)
-        val i_name = invSharedPref.getString("name","")
-        val i_amount = invSharedPref.getString("amount","")
-        val i_date = invSharedPref.getString("date","")
-        val i_desc = invSharedPref.getString("desc","")
+        val iname = invSharedPref.getString("name","")
+        val iamount = invSharedPref.getString("amount","")
+        val idate = invSharedPref.getString("date","")
+        val idesc = invSharedPref.getString("desc","")
 
         //set the values to text views..
-        clientName.text = i_name
-        invoiceAmount.text= i_amount
-        creationDate.text = i_date
-        description.text = i_desc
+        clientName.text = iname
+        invoiceAmount.text= iamount
+        creationDate.text = idate
+        description.text = idesc
 
 
 

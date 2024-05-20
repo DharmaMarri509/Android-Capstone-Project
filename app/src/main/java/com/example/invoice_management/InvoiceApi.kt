@@ -6,6 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Query
 
 interface InvoiceApi {
@@ -18,4 +19,7 @@ interface InvoiceApi {
 
     @POST("/invoice/save")
     fun saveInvoice(@Query("userId") userId:Int, @Body invoice:Invoice):Call<Invoice>
+
+    @PUT("/invoice/update")
+    fun updateInvoice(@Query("invoiceId") invoiceId:Int, @Body invoice:Invoice):Call<Invoice>
 }
