@@ -17,5 +17,5 @@ interface InvoiceApi {
     suspend fun deleteInvoice(@Query("invoiceId") invoiceId:Int):Response<String>
 
     @POST("/invoice/save")
-    suspend fun saveInvoice(@Query("userId") userId:Int, @Body invoice:Invoice):Response<Invoice>
+    fun saveInvoice(@Query("userId") userId:Int, @Body invoice:Invoice):Call<Invoice>
 }

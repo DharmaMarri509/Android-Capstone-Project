@@ -39,11 +39,9 @@ class InvoiceAdapter(private val invoices: List<Invoice>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: InvoiceViewHolder, position: Int) {
         val currentInvoice = invoices[position]
         holder.clientNameTextView.text = currentInvoice.clientName
-        holder.amountTextView.text = currentInvoice.amount.toString()
-        holder.dateTextView.text = currentInvoice.date.format(DateTimeFormatter.ISO_LOCAL_DATE)
+        holder.amountTextView.text = currentInvoice.invoiceAmount.toString()
+        holder.dateTextView.text = currentInvoice.createdDate.toString()
 
-        //import java.time.format.DateTimeFormatter
-        //invoice.creationDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
 
         //open the detailed view of the invoice
         holder.itemView.setOnClickListener{

@@ -6,7 +6,7 @@ import java.util.Date
 
 data class Invoice(
     var clientName: String,
-    var amount :Double,
-    var date: LocalDate,
+    var invoiceAmount :Double,
+    var createdDate: String,
     var description: String,
 )
