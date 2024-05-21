@@ -1,5 +1,6 @@
 package com.example.invoice_management
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -50,22 +51,45 @@ class AddInvoiceActivity : AppCompatActivity() {
             Log.i("addinvoice activity","description before call is $desc")
             val invoice = Invoice(0,clientName,amount,date,desc)
             Log.i("addinvoice activity","description is $desc")
-            val call: Call<Invoice> = invoiceApi.saveInvoice(userId,invoice)
 
-            call.enqueue(object : Callback<Invoice> {
-                override fun onResponse(call: Call<Invoice>, response: Response<Invoice>) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@AddInvoiceActivity, "Invoice created successfully", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this@AddInvoiceActivity, "Failed to create invoice", Toast.LENGTH_SHORT).show()
-                        Log.i("error in adding invoice","${response.errorBody()}")
+            //
+
+            if(clientName.isNotBlank() && clientName.length >=5 && amount>=3000) {
+
+                val call: Call<Invoice> = invoiceApi.saveInvoice(userId, invoice)
+
+                call.enqueue(object : Callback<Invoice> {
+                    override fun onResponse(call: Call<Invoice>, response: Response<Invoice>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(
+                                this@AddInvoiceActivity,
+                                "Invoice created successfully",
+                                Toast.LENGTH_SHORT
+                            ).show()
+//                            val intent = Intent(this@AddInvoiceActivity,InvoiceListActivity::class.java)
+//                            startActivity(intent)
+                        } else {
+                            Toast.makeText(
+                                this@AddInvoiceActivity,
+                                "Failed to create invoice",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            Log.i("error in adding invoice", "${response.errorBody()}")
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<Invoice>, t: Throwable) {
-                    Toast.makeText(this@AddInvoiceActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                }
-            })
+                    override fun onFailure(call: Call<Invoice>, t: Throwable) {
+                        Toast.makeText(
+                            this@AddInvoiceActivity,
+                            "Error: ${t.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
+            }else{
+                Toast.makeText(this@AddInvoiceActivity,"please provide crrect credentials",Toast.LENGTH_SHORT).show()
+            }
+
 
         }
 
