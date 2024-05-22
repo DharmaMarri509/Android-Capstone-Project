@@ -61,7 +61,8 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
-                    // if the loginResponse is not null then only the block will executed
+                    // if the loginResponse is not null then only the block will executed..
+                    //safe call operator..
                     loginResponse?.let {
                         // Handle successful login
 
@@ -83,12 +84,12 @@ class LoginActivity : AppCompatActivity() {
 
                     }
                 } else {
-                    // Handle unsuccessful response
+
                     Toast.makeText(this@LoginActivity, "Login failed: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
             override fun onFailure(call: Call<Int>, t: Throwable) {
-                // Handle error
+
                 Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })

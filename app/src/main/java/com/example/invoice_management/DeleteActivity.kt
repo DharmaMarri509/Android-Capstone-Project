@@ -64,9 +64,9 @@ class DeleteActivity : AppCompatActivity() {
 
             builder.setTitle("Delete Invoice")
             builder.setMessage("Are you sure you want to delete?")
+            builder.setCancelable(false)
 
-            builder.setPositiveButton("Yes") { dialog, which ->
-                // implement code to handle request
+            builder.setPositiveButton("Yes") { _, _ ->
 
 
                 Log.i("delete Activity","invoice id in delete activity is: $id")
@@ -96,14 +96,9 @@ class DeleteActivity : AppCompatActivity() {
                 })
 
 
-
-
-
-
-
             }
 
-            builder.setNegativeButton("No") { dialog, which ->
+            builder.setNegativeButton("No") { _, _ ->
 
             }
             builder.create().show()

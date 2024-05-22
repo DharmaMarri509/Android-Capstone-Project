@@ -28,7 +28,7 @@ class AddInvoiceActivity : AppCompatActivity() {
     private lateinit var description: EditText
     private lateinit var saveBtn: Button
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_invoice)
@@ -48,11 +48,11 @@ class AddInvoiceActivity : AppCompatActivity() {
             val amount = amount.text.toString().toDouble()
             val date = date.text.toString()
             val desc = description.text.toString()
-            Log.i("addinvoice activity","description before call is $desc")
+            Log.i("add invoice activity","description before call is $desc")
             val invoice = Invoice(0,clientName,amount,date,desc)
-            Log.i("addinvoice activity","description is $desc")
+            Log.i("add invoice activity","description is $desc")
 
-            //
+
 
             if(clientName.isNotBlank() && clientName.length >=5 && amount>=3000) {
 
@@ -87,7 +87,7 @@ class AddInvoiceActivity : AppCompatActivity() {
                     }
                 })
             }else{
-                Toast.makeText(this@AddInvoiceActivity,"please provide crrect credentials",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AddInvoiceActivity,"please provide correct credentials",Toast.LENGTH_SHORT).show()
             }
 
 

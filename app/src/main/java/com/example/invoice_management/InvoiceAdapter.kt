@@ -31,7 +31,7 @@ class InvoiceAdapter(private val context: Context,private val invoices: List<Inv
        //image view of the file.
       //  val imageView1 = itemView.findViewById<ImageView>(R.id.imageView1)
         //edit imageview
-        val imageView2 = itemView.findViewById<ImageView>(R.id.imageView2)
+        val imageView2: ImageView = itemView.findViewById(R.id.imageView2)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InvoiceViewHolder {
@@ -39,7 +39,7 @@ class InvoiceAdapter(private val context: Context,private val invoices: List<Inv
         return InvoiceViewHolder(itemView)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onBindViewHolder(holder: InvoiceViewHolder, position: Int) {
         val currentInvoice = invoices[position]
         holder.clientNameTextView.text = currentInvoice.clientName
@@ -67,7 +67,8 @@ class InvoiceAdapter(private val context: Context,private val invoices: List<Inv
 
             editor.apply()
             val intent = Intent(context, DeleteActivity::class.java)
-            ContextCompat.startActivity(context, intent ,null)
+            context.startActivity(intent)
+
 
         }
 
@@ -91,12 +92,10 @@ class InvoiceAdapter(private val context: Context,private val invoices: List<Inv
 
             editor.apply()
             val intent = Intent(context, EditInvoiceActivity::class.java)
-            ContextCompat.startActivity(context, intent ,null)
+            context.startActivity(intent)
         }
 
     }
-
-
 
     override fun getItemCount() = invoices.size
 

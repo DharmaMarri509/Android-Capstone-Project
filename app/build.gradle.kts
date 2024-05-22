@@ -47,18 +47,13 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
-    implementation("com.google.code.gson:gson:2.10.1")
+ //   implementation("com.google.code.gson:gson:2.10.1")
     // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-android
     runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
-    runtimeOnly("androidx.recyclerview:recyclerview:1.3.2")
+ //   runtimeOnly("androidx.recyclerview:recyclerview:1.3.2")
     // https://mvnrepository.com/artifact/com.google.android.material/material
-    runtimeOnly("com.google.android.material:material:1.12.0")
-    // https://mvnrepository.com/artifact/androidx.preference/preference-ktx
-    runtimeOnly("androidx.preference:preference-ktx:1.2.0")
-
-
-
+ //   runtimeOnly("com.google.android.material:material:1.12.0")
 
 
 

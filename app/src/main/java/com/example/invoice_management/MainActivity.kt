@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
         emailId = findViewById(R.id.email)
         btn = findViewById(R.id.button)
         btn.setOnClickListener {
-            var name: String = userName.getText().toString()
-            var pswd = password.getText().toString()
-            var email = emailId.getText().toString()
+            val name: String = userName.getText().toString()
+            val pswd = password.getText().toString()
+            val email = emailId.getText().toString()
 
 //            scope.launch {
 //                val user = User(name, pswd, email)

@@ -29,7 +29,7 @@ class InvoiceListActivity : AppCompatActivity() {
     private val scope: CoroutineScope = CoroutineScope(Job() + Dispatchers.Main)
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_invoice_list)
@@ -49,17 +49,16 @@ class InvoiceListActivity : AppCompatActivity() {
         val userId = getSharedPreferences("user_data", MODE_PRIVATE).getInt("user_id", -1)
         Log.i("invoice activity","userId in invoicelist $userId")
 
-
-        Log.i("invoice activity","userId in scope $userId")
         val call = invoiceApi.getInvoices(userId)
         Log.i("invoice activity","userId in after making call $userId")
-        call.enqueue(object : Callback<List<Invoice>> { override fun onResponse(call: Call<List<Invoice>>, response: Response<List<Invoice>>) {
-            if (response.isSuccessful) {
-                val invoices = response.body() ?: emptyList()
-                Log.i("invoice activity","list of invoices $invoices")
-                invoiceAdapter = InvoiceAdapter(this@InvoiceListActivity,invoices)
-                recyclerView.adapter = invoiceAdapter
-            }
+        call.enqueue(object : Callback<List<Invoice>> {
+            override fun onResponse(call: Call<List<Invoice>>, response: Response<List<Invoice>>) {
+                if (response.isSuccessful) {
+                    val invoices = response.body() ?: emptyList()
+                    Log.i("invoice activity","list of invoices $invoices")
+                    invoiceAdapter = InvoiceAdapter(this@InvoiceListActivity,invoices)
+                    recyclerView.adapter = invoiceAdapter
+                }
         }
 
             override fun onFailure(call: Call<List<Invoice>>, t: Throwable) {
@@ -67,10 +66,6 @@ class InvoiceListActivity : AppCompatActivity() {
                 Log.e("error message", "$t.message")
             }
         })
-
-
-
-
 
             //to handle the add the invoice
         findViewById<FloatingActionButton>(R.id.invoices_list_fab).setOnClickListener {
